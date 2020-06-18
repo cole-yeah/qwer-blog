@@ -1,0 +1,24 @@
+{
+  "name": "nami",
+  "version": "1.0.0",
+  "description": "> LOL 唤潮鲛姬:娜美(Nami)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cole-yeah/Nami.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cole-yeah/Nami/issues"
+  },
+  "homepage": "https://github.com/cole-yeah/Nami#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  }
+}
