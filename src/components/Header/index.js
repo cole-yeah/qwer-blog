@@ -1,15 +1,19 @@
 import React, { useEffect } from 'react'
 
-const Index = () => {
+import css from './index.module.scss'
+
+const Index = ({
+  title
+}) => {
   
   useEffect(() => {
 
   }, [])
 
   return (
-    <div>
-      this is header
-    </div>
+    <h3 className={css.header}>
+      {title}
+    </h3>
   )
 }
 
