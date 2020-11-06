@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo, useCallback } from 'react';
 import styled from 'styled-components';
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import { useSelector, useDispatch } from 'react-redux';
 import { sliceKey, reducer, actions } from './slice';
 import { selectCounter, selectState } from './selector';
 import { counterFromSaga } from './saga';
-import { Button } from './components/Button';
-import { Count } from './components/Count';
-import { Flex } from './components/Flex';
+import { Button, Count, Flex } from './components/styled';
 import { fetchFunc } from './utils';
+import { WithMemo, WithoutMemo } from './components/CountDown';
+import FuncComponent from './components/FuncComponent';
 
 const Index = () => {
   useInjectReducer({ key: sliceKey, reducer: reducer });
@@ -22,6 +22,7 @@ const Index = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log('-- page useEffect --');
     fetchFunc();
   }, []);
 
@@ -33,10 +34,9 @@ const Index = () => {
     const actionName = type === 'plus' ? 'increment' : 'decrement';
     dispatch(actions[actionName]());
   }
-
+  
   return (
     <Wrapper>
-      <title>Home Page</title>
       <Flex>
         <Button onClick={() => clickFunc('minus')}>-</Button>
         <Count style={{ color: counter % 2 === 0 ? 'blue' : '#333' }}>
@@ -49,6 +49,9 @@ const Index = () => {
         延时500ms加一
       </Button>
       <div>{ids.join('-')}</div>
+      <WithMemo />
+      <WithoutMemo />
+      <FuncComponent />
     </Wrapper>
   );
 };
