@@ -15,6 +15,8 @@ import { GlobalStyle } from '../styles/global-styles';
 import { HomePage } from './containers/HomePage/Loadable';
 import CounterPage from './containers/CounterPage/Loadable';
 import { NotFoundPage } from './containers/NotFoundPage/Loadable';
+import ChartsPage from './containers/Charts/Loadable';
+import 'antd/dist/antd.dark.css';
 
 export function App() {
   return (
@@ -28,7 +30,8 @@ export function App() {
 
       <Switch>
         <Route exact path={process.env.PUBLIC_URL + '/'} component={HomePage} />
-        <Route exact path={'/counter'} component={CounterPage} />
+        <Route exact path="/counter" component={CounterPage} />
+        <Route exact path="/charts" component={ChartsPage} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
